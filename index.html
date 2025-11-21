@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>public-site</title>
+    <link href="/src/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f24d7ea1b7.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.2/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="{ open: false }" class="bg-black font-inter">
+    <!-- <div id="app"></div> -->
+    <div class="bg-[#D1D9E4] px-20 py-5 rounded-2xl">
+        <div class=" grid grid-cols-4 grid-rows-10 gap-x-20 gap-y-2.5">
+            <!-- HEADER -->
+            <header class="col-span-full row-span-2 flex flex-col gap-y-2.5">
+                <!-- Site Title -->
+                <div class=" min-h-[95px] flex items-center justify-center">
+                    <h1 class="text-4xl font-semibold">dyCodev</h1>
+                </div>
+                <!-- Navigation Bar -->
+                <div class="min-h-[95px] col-span-full">
+                    <div
+                        class="flex items-center justify-between border border-1.5 border-[#979BAA] rounded-4xl min-h-20 px-4 gap-2.5">
+                        <div class="flex-1">
+                            <div class="w-[140px] h-[42px] bg-white flex justify-around items-center rounded-2xl">
+                                <div class="w-8 h-8">
+                                    <a href="http://instagram.com" target="_blank" rel="noopener noreferrer">
+                                        <img src="./ico-1.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="w-8 h-8">
+                                    <a href="http://github.com/dy-pro/" target="_blank" rel="noopener noreferrer">
+                                        <img src="./ico-2.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-none">
+                            <nav>
+                                <ul class="flex flex-row items-center gap-x-6 text-lg font-semibold">
+                                    <li class="relative after:content-['•'] after:ml-6 last:after:content-none">
+                                        <a href="#" @click.prevent="open = true">
+                                            Blogs
+                                        </a>
+                                    </li>
+                                    <li class="relative after:content-['•'] after:ml-6 last:after:content-none">
+                                        <a href="#" @click.prevent="open = true">
+                                            Studio
+                                        </a>
+                                    </li>
+                                    <li class="relative after:content-['•'] after:ml-6 last:after:content-none">
+                                        <a href="#" @click.prevent="open = true">
+                                            Youtube
+                                        </a>
+                                    </li>
+                                    <li class="relative after:content-['•'] after:ml-6 last:after:content-none">
+                                        <a href="" @click.prevent="open = true">
+                                            Kelas Setara
+                                        </a>
+                                    </li>
+                                    <li class="relative after:content-none">
+                                        <a href="#" @click.prevent="open = true">
+                                            Services
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="flex-1 text-sm text-right font-medium">
+                            <time x-data="{ day: '' }" x-init="day = new Date()
+                                    .toLocaleDateString('en-US', { weekday: 'short' })
+                                    .toUpperCase()">
+                                <span x-text="day"></span>
+                            </time>
+                            <br>
+                            <time x-data="{ dateStr: '' }" x-init="
+                                    const d = new Date();
+                                    const day = String(d.getDate()).padStart(2, '0');
+                                    const month = d
+                                        .toLocaleDateString('en-US', { month: 'short' })
+                                        .toUpperCase();
+                                    const year = d.getFullYear();
+                                    dateStr = `${day} ${month} ${year}`;
+                                ">
+                                <span x-text="dateStr"></span>
+                            </time>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <div
+                class="relative bg-[url(/img1.png)] bg-no-repeat bg-contain bg-center col-span-full row-span-7 flex items-center">
+                <div class="basis-3/4">
+                    <p class="text-8xl font-semibold leading-tight">Talk is <br />cheap. <br />Show me <br />the code.
+                    </p>
+                </div>
+
+                <div
+                    class="relative z-20 basis-1/4 h-full flex flex-col gap-6 rounded-[56px] bg-[#D1D9E4]/10 backdrop-blur-md border border-1.5 border-[#979BAA] shadow-[0_4px_16px_rgba(0,0,0,0.07)]">
+                    <div class="basis-1/8 flex items-center justify-between px-6 rounded-tl-[56px] rounded-tr-[56px]">
+                        <a href="#" @click.prevent="open = true" class="text-sm font-medium">
+                            Design Content
+                        </a>
+                        <div class="rounded-full w-14 h-14 bg-white flex justify-center items-center">
+                            <a href="#" @click.prevent="open = true">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="basis-3/8 flex flex-col justify-end gap-2.5 px-6">
+                        <h2 class="text-3xl font-medium">The World of the Future and Artificial Intelligence</h2>
+                        <p class="text-base">A new nominatioan The World of the Future and Artificial Intelligence has
+                            been opened and
+                            will be presented out the exhibition by NVIDIA.</p>
+                        <div class="mt-3">
+                            <span class="mr-3">
+                                <i class="fa-regular fa-calendar"></i>
+                                <span class="text-xs font-semibold">20/10/2025</span>
+                            </span>
+
+                            <span>
+                                <i class="fa-regular fa-eye"></i>
+                                <span class="text-xs font-semibold">167 views</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="basis-4/8 rounded-[56px] bg-[url(./thumb1.png)] bg-cover bg-origin-padding">
+
+                    </div>
+                </div>
+
+                <img src="./img-2.png" alt="" class="absolute top-20 right-20  w-40 z-10">
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="col-span-3 flex items-center border-t-2 border-[#979BAA]">
+                <div class="flex-1">
+                    <p class="text-xs">© 2025 dyCodev. All Rights reserved.</p>
+                </div>
+
+                <div class="flex-1">
+                    <ul class="flex justify-end items-center gap-6 text-xs">
+                        <li>
+                            <a href="#" @click.prevent="open = true">About</a>
+                        </li>
+                        <li>
+                            <a href="#" @click.prevent="open = true">
+                                Disclaimer
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+            <!-- <div class="">05</div> -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+
+    <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+        <div x-show="open" x-transition.scale @click.outside="open = false"
+            class="relative bg-[#D1D9E4]/30 rounded-4xl shadow-xl p-10 w-[30vw] aspect-[16/10] border border-solid border-1.5 border-[#979BAA] backdrop-blur-md flex items-center justify-center text-center">
+            <!-- Tombol close -->
+            <button @click="open = false" class="absolute top-4 right-4 text-[#D1D9E4] hover:text-gray-700 text-xl">
+                ✕
+            </button>
+            <!-- Konten modal -->
+            <p class="text-4xl font-semibold text-[#D1D9E4] text-center">
+                ☕<br /><br />
+                <span class="uppercase">work in progress</span><br>
+                <span class="text-xl leading-0">The programmer is still converting caffeine <br />into
+                    code</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- JS Script -->
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

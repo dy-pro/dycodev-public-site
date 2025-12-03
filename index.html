@@ -11,21 +11,24 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.2/dist/cdn.min.js"></script>
 </head>
 
-<body x-data="{ open: false }" class="bg-black font-inter">
-    <!-- <div id="app"></div> -->
-    <div class="bg-[#D1D9E4] px-7 sm:px-20 py-5 rounded-2xl">
-        <div class=" grid grid-cols-1 gap-y-3 sm:grid-cols-4 sm:grid-rows-10 sm:gap-x-20 sm:gap-y-2.5">
+<body x-data="{ open: false }" class="bg-black font-inter h-screen overflow-hidden">
+    
+    <div class="bg-[#D1D9E4] relative px-7 lg:px-20 py-5 rounded-2xl h-full flex flex-col">
+        <img src="./img1.png" alt="ornament-1" class="absolute bottom-25 md:bottom-[30%] left-3/5 -translate-x-1/2 w-[185vw] lg:hidden max-w-none z-0 pointer-events-none select-none">
+        <img src="./img-2.png" alt="ornament-2" class="absolute top-17 md:top-20 right-15 w-80 z-0">
+
+        <div class="h-full flex flex-col gap-y-3 lg:grid lg:grid-cols-4 lg:grid-rows-10 lg:gap-x-20 lg:gap-y-2.5">
             <!-- HEADER -->
-            <header class="col-span-full row-span-2 flex flex-col gap-y-2.5">
+            <header class="basis-[10vh] sm:col-span-full sm:row-span-2 flex flex-col gap-y-2.5">
                 <!-- Site Title -->
-                <div class=" min-h-[95px] flex items-center justify-center">
-                    <h1 class="text-4xl font-semibold">dyCodev</h1>
+                <div class="min-h-[45px] lg:h-full flex items-center justify-center">
+                    <h1 class="text-3xl sm:text-4xl font-semibold">dyCodev</h1>
                 </div>
                 <!-- Navigation Bar -->
-                <div class="min-h-[95px] col-span-full">
+                <div class="min-h-[45px] lg:h-full col-span-full">
                     <div
                         class="flex items-center justify-between bg-[#D1D9E4]/10 backdrop-blur-md border border-1.5 border-[#979BAA] rounded-3xl sm:rounded-4xl min-h-20 px-4 gap-2.5">
-                        <div class="hidden flex-1 sm:flex">
+                        <div class="hidden flex-1 lg:flex">
                             <div class="w-[140px] h-[42px] bg-white flex justify-around items-center rounded-2xl">
                                 <div class="w-8 h-8">
                                     <a href="http://instagram.com" target="_blank" rel="noopener noreferrer">
@@ -40,25 +43,29 @@
                             </div>
                         </div>
 
-                        <div class="flex-1 sm:flex-none">
+                        <div class="flex-1 lg:flex-none">
                             <nav>
-                                <ul class="flex flex-col sm:flex-row items-center sm:gap-x-6 text-lg font-semibold">
-                                    <li class="relative py-2 border-b-1 border-[#979BAA] sm:border-none sm:after:content-['•'] sm:after:ml-6 sm:last:after:content-none">
+                                <ul class="flex flex-col sm:flex-row items-center md:justify-center sm:gap-x-6 text-xs sm:text-lg font-semibold">
+                                    <li
+                                        class="relative py-2 border-b-1 border-[#979BAA] sm:border-none sm:after:content-['•'] sm:after:ml-6 sm:last:after:content-none">
                                         <a href="#" @click.prevent="open = true">
                                             Blogs
                                         </a>
                                     </li>
-                                    <li class="relative py-2 border-b-1 border-[#979BAA] sm:border-none sm:after:content-['•'] sm:after:ml-6 sm:last:after:content-none">
+                                    <li
+                                        class="relative py-2 border-b-1 border-[#979BAA] sm:border-none sm:after:content-['•'] sm:after:ml-6 sm:last:after:content-none">
                                         <a href="#" @click.prevent="open = true">
                                             Studio
                                         </a>
                                     </li>
-                                    <li class="relative py-2 border-b-1 border-[#979BAA] sm:border-none sm:after:content-['•'] sm:after:ml-6 sm:last:after:content-none">
+                                    <li
+                                        class="relative py-2 border-b-1 border-[#979BAA] sm:border-none sm:after:content-['•'] sm:after:ml-6 sm:last:after:content-none">
                                         <a href="#" @click.prevent="open = true">
                                             Youtube
                                         </a>
                                     </li>
-                                    <li class="relative py-2 border-b-1 border-[#979BAA] sm:border-none sm:after:content-['•'] sm:after:ml-6 sm:last:after:content-none">
+                                    <li
+                                        class="relative py-2 border-b-1 border-[#979BAA] sm:border-none sm:after:content-['•'] sm:after:ml-6 sm:last:after:content-none">
                                         <a href="" @click.prevent="open = true">
                                             Kelas Setara
                                         </a>
@@ -72,7 +79,7 @@
                             </nav>
                         </div>
 
-                        <div class="hidden flex-1 sm:block text-sm text-right font-medium">
+                        <div class="hidden flex-1 lg:block text-sm text-right font-medium">
                             <time x-data="{ day: '' }" x-init="day = new Date()
                                     .toLocaleDateString('en-US', { weekday: 'short' })
                                     .toUpperCase()">
@@ -97,15 +104,18 @@
 
             <!-- MAIN -->
             <div
-                class="relative bg-[url(/img1.png)] bg-no-repeat bg-center bg-contain col-span-full row-span-7 flex flex-col sm:flex-row items-center">
-                <div class="basis-3/4">
-                    <p class="hidden sm:block text-8xl font-semibold leading-tight">Talk is <br />cheap. <br />Show me <br />the code.
+                class="basis-full lg:bg-[url(/img1.png)] bg-no-repeat bg-center bg-contain flex flex-col items-center md:justify-between lg:col-span-full lg:row-start-3 lg:row-end-10 lg:grid lg:grid-cols-4 lg:grid-rows-7 lg:h-full">
+                <div class="basis-1/2 z-20 md:basis-1/3 2xl:col-span-3 2xl:row-span-full">
+                    <p class="hidden lg:block text-8xl font-semibold leading-tight">Talk is <br />cheap. <br />Show me
+                        <br />the code.
+                    </p>
+                    <p class="lg:hidden text-3xl md:text-7xl font-semibold leading-tight text-center">Talk is cheap. Show me the code.
                     </p>
                 </div>
 
-                <div
-                    class="relative z-20 basis-1/4 h-full flex flex-col gap-6 rounded-[40px] sm:rounded-[56px] bg-[#D1D9E4]/10 backdrop-blur-md border border-1.5 border-[#979BAA] shadow-[0_4px_16px_rgba(0,0,0,0.07)]">
-                    <div class="basis-1/8 flex items-center justify-between px-6 py-4 rounded-tl-[56px] rounded-tr-[56px]">
+                <div id="post-card"
+                    class="basis-[364px] md:basis-4xl z-20 overflow-y-auto overflow-x-hidden [&::-webkit-scrollbar]:hidden scrollbar-none flex flex-col sm:gap-6 rounded-tl-[40px] rounded-tr-[40px] sm:rounded-[56px] bg-[#D1D9E4]/10 backdrop-blur-md border border-1.5 border-[#979BAA] shadow-[0_4px_16px_rgba(0,0,0,0.07)] lg:row-span-full lg:col-end-5 lg:col-span-1 lg:h-full">
+                    <!-- <div class="basis-1/8 flex items-center justify-between px-6 py-4 rounded-tl-[56px] rounded-tr-[56px]">
                         <a href="#" @click.prevent="open = true" class="text-sm font-medium">
                             Design Content
                         </a>
@@ -134,14 +144,24 @@
                     </div>
                     <div class="basis-4/8 rounded-[56px] bg-[url(/thumb1.png)] bg-cover bg-origin-padding">
 
-                    </div>
-                </div>
+                    </div> -->
 
-                <img src="./img-2.png" alt="" class="absolute top-20 right-20  w-40 z-10">
+                    <!-- indicators -->
+                    <!-- <div class="absolute rounded-sm bottom-3 md:bottom-5 left-1/2 z-20 flex -translate-x-1/2 gap-4 md:gap-3 bg-white/75 px-1.5 py-1 md:px-2 dark:bg-neutral-950/75"
+                        role="group" aria-label="slides">
+                        <template x-for="(slide, index) in slides">
+                            <button class="size-2 rounded-full transition bg-neutral-600 dark:bg-neutral-300"
+                                x-on:click="currentSlideIndex = index + 1"
+                                x-bind:class="[currentSlideIndex === index + 1 ? 'bg-neutral-600 dark:bg-neutral-300' : 'bg-neutral-600/50 dark:bg-neutral-300/50']"
+                                x-bind:aria-label="'slide ' + (index + 1)"></button>
+                        </template>
+                    </div> -->
+                </div>
             </div>
 
             <!-- FOOTER -->
-            <footer class="flex col-span-full flex-col-reverse gap-4 sm:col-span-3 sm:flex-row items-center border-t-2 border-[#979BAA]">
+            <footer
+                class="basis-[10vh] flex flex-col-reverse gap-4 lg:col-span-3 sm:flex-row items-center border-t-2 border-[#979BAA]">
                 <div class="sm:flex-1">
                     <p class="text-xs">© 2025 dyCodev. All Rights reserved.</p>
                 </div>
@@ -163,6 +183,8 @@
         </div>
     </div>
 
+    
+
     <!-- Modal -->
 
     <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
@@ -176,7 +198,7 @@
             <p class="text-4xl font-semibold text-[#D1D9E4] text-center">
                 ☕<br /><br />
                 <span class="uppercase">work in progress</span><br>
-                <span class="text-xl leading-0">The programmer is still converting caffeine <br />into
+                <span class="text-xl leading-0">The programmer is still converting caffeine into
                     code</span>
             </p>
         </div>

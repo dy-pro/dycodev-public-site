@@ -9,31 +9,45 @@ async function loadWP() {
 
   for (const p of posts) {
     // Post Category Data
-    const categories = p._embedded?.["wp:term"]?.[0]?.map(c => c.name) || [];
-    const categoryText = categories.join(", ");
+    const categories = p._embedded?.["wp:term"]?.[0] || [];
+    const categoryLinks = categories.map(c => {
+      return `<a href="${c.link}" class="hover:underline">${c.name}</a>`;
+    });
+    const categoryHTML = categoryLinks.join(", ");
     // Excerpt Data
     let excerptHtml = p.excerpt.rendered; // Get Html
     let tempDiv = document.createElement("div"); // create temp. element to get only text html
     tempDiv.innerHTML = excerptHtml;
     let excerptText = tempDiv.textContent || tempDiv.innerText || "";
-    // Post Date Data
-    const postDate = p.date; // "2017-09-10T23:29:46"
-    const dateObj = new Date(postDate);
-    const formattedPostDate = dateObj.toLocaleDateString('id-ID');
     const maxLen = 150;
     if (excerptText.length > maxLen) {
       excerptText = excerptText.slice(0, maxLen) + "...";
     }
+    // Post Date Data
+    const postDate = p.date; // "2017-09-10T23:29:46"
+    const dateObj = new Date(postDate);
+    const formattedPostDate = dateObj.toLocaleDateString('id-ID');
+
     // Featured Image Post Data
     const coverUrl = p._embedded?.["wp:featuredmedia"]?.[0]?.source_url || p.jetpack_featured_media_url || "/thumb1.png";
+
+    // Truncate Post Title Function
+    function truncateWordSafe(text, limit = 50) {
+      if (!text) return "";
+      const stripped = text.replace(/<\/?[^>]+(>|$)/g, "");
+      if (stripped.length <= limit) return stripped;
+      const cut = stripped.slice(0, limit);
+      const lastSpace = cut.lastIndexOf(" ");
+      return cut.slice(0, lastSpace) + "…";
+    }
 
     const temp = document.createElement("template") // temporary wrapper
 
     temp.innerHTML = `
       <div class="basis-1/8 flex items-start sm:items-center justify-between px-6 pt-4 sm:py-9 rounded-tl-[40px] rounded-tr-[40px] md:rounded-tl-[56px] md:rounded-tr-[56px]">
-          <a href="#" @click.prevent="open = true" class="text-xs sm:text-lg lg:text-base font-medium">
-              ${categoryText}
-          </a>
+          <div class="text-xs sm:text-lg lg:text-base font-medium">
+            ${categoryHTML}
+          </div>
           <div class="rounded-full w-11 h-11 sm:w-14 sm:h-14 bg-white flex justify-center items-center">
               <a href="${p.link}">
                   <i class="fa-solid fa-arrow-up-right-from-square text-xs sm:text-lg"></i>
@@ -41,7 +55,7 @@ async function loadWP() {
           </div>
       </div>
       <div class="basis-3/8 flex flex-col justify-end gap-1.5 sm:gap-2.5 px-6">
-          <h2 class="text-3xl md:text-5xl lg:text-3xl font-medium">${p.title.rendered}</h2>
+          <h2 class="text-xl md:text-5xl lg:text-3xl font-medium">${truncateWordSafe(p.title.rendered, 55)}</h2>
           <p class="text-base md:text-xl lg:text-base hidden sm:block">${excerptText}</p>
           <div class="sm:mt-3">
               <span class="mr-3">

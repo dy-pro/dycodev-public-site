@@ -189,18 +189,17 @@
 
     <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
         <div x-show="open" x-transition.scale @click.outside="open = false"
-            class="relative bg-[#D1D9E4]/30 rounded-4xl shadow-xl p-10 w-[80vw] sm:w-[30vw] sm:aspect-[16/10] border border-solid border-1.5 border-[#979BAA] backdrop-blur-md flex items-center justify-center text-center">
+            class="relative bg-[#D1D9E4]/30 rounded-4xl shadow-xl p-10 w-[80vw] sm:w-[30vw] aspect-square sm:aspect-[16/10] border border-solid border-1.5 border-[#979BAA] backdrop-blur-md flex flex-col items-center justify-center gap-2 text-center">
             <!-- Tombol close -->
-            <button @click="open = false" class="absolute top-4 right-4 text-[#D1D9E4] hover:text-gray-700 text-xl">
+            <button @click="open = false" class="absolute top-4 right-4 text-[#D1D9E4] hover:text-gray-700 text-base sm:text-xl">
                 ✕
             </button>
             <!-- Konten modal -->
-            <p class="text-4xl font-semibold text-[#D1D9E4] text-center">
-                ☕<br /><br />
-                <span class="uppercase">work in progress</span><br>
-                <span class="text-xl leading-0">The programmer is still converting caffeine into
-                    code</span>
+            <p class="text-6xl font-semibold text-[#D1D9E4] text-center">
+                ☕<br />
+                <span class="text-2xl sm:text-4xl uppercase">work in progress</span>
             </p>
+            <p class="text-base sm:text-xl leading-none">The programmer is still converting caffeine into code</p>
         </div>
     </div>
 

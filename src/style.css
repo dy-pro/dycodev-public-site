@@ -2,7 +2,13 @@
 @import "tailwindcss";
 
 @theme {
-  --font-inter: "Inter", sans-serif; 
+  --font-inter: "Inter", sans-serif;
+  
+  /* Custom Breakpoints */
+  --breakpoint-2xl: 106rem; /*1696 px*/
+  --breakpoint-3xl: 128rem; /*2048 px - 2495 px*/
+  --breakpoint-4xl: 156rem; /*2496 px - 5119 px*/
+  --breakpoint-5xl: 320rem; /*5120 px*/
 }
 
 ::-webkit-scrollbar {

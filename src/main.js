@@ -44,20 +44,23 @@ async function loadWP() {
     const temp = document.createElement("template") // temporary wrapper
 
     temp.innerHTML = `
-      <div class="basis-1/8 flex items-start sm:items-center justify-between px-6 pt-4 sm:py-9 rounded-tl-[40px] rounded-tr-[40px] md:rounded-tl-[56px] md:rounded-tr-[56px]">
-          <div class="text-xs sm:text-lg lg:text-base font-medium">
-            ${categoryHTML}
+      <div class="flex flex-col lg:flex-row-reverse xl:flex-col sm:gap-6">
+
+        <div class="basis-1/2 lg:basis-3/5 xl:basis-1/2 flex flex-col gap-3 sm:gap-6">
+          <div class="basis-1/4 flex items-start sm:items-center justify-between px-6 pt-4 sm:py-9 rounded-tl-[40px] rounded-tr-[40px] md:rounded-tl-[56px] md:rounded-tr-[56px]">
+            <div class="text-xs sm:text-lg lg:text-base font-medium">
+              ${categoryHTML}
+            </div>
+            <a href="${p.link}">
+              <div class="rounded-full w-11 h-11 sm:w-14 sm:h-14 bg-white flex justify-center items-center">  
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs sm:text-lg"></i>              
+              </div>
+            </a>
           </div>
-          <div class="rounded-full w-11 h-11 sm:w-14 sm:h-14 bg-white flex justify-center items-center">
-              <a href="${p.link}">
-                  <i class="fa-solid fa-arrow-up-right-from-square text-xs sm:text-lg"></i>
-              </a>
-          </div>
-      </div>
-      <div class="basis-3/8 flex flex-col justify-end gap-1.5 sm:gap-2.5 px-6">
-          <h2 class="text-xl md:text-5xl lg:text-3xl font-medium">${truncateWordSafe(p.title.rendered, 55)}</h2>
-          <p class="text-base md:text-xl lg:text-base hidden sm:block">${excerptText}</p>
-          <div class="sm:mt-3">
+          <div class="basis-1/2 flex flex-col justify-end gap-1.5 sm:gap-2.5 px-6">
+            <h2 class="text-xl md:text-5xl lg:text-3xl font-medium">${truncateWordSafe(p.title.rendered, 55)}</h2>
+            <p class="text-base md:text-xl lg:text-base hidden sm:block">${excerptText}</p>
+            <div class="sm:mt-3">
               <span class="mr-3">
                   <i class="fa-regular fa-calendar text-xs md:text-base lg:text-xs"></i>
                   <span class="text-[10px] md:text-base lg:text-[10px] font-semibold">${formattedPostDate}</span>
@@ -67,11 +70,15 @@ async function loadWP() {
                   <i class="fa-regular fa-eye text-xs md:text-base lg:text-xs"></i>
                   <span class="text-[10px] md:text-base lg:text-[10px] font-semibold">167 views</span>
               </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-2 lg:mt-0 xl:mt-2 basis-1/2 lg:basis-2/5 xl:basis-1/2">
+          <div class="lg:w-full aspect-[4/3] lg:aspect-square xl:aspect-[4/3]">
+            <img src="${coverUrl}" class="grayscale rounded-[40px] sm:rounded-[56px] lg:w-full lg:h-full lg:object-cover" />
           </div>
       </div>
-      
-      <img src="${coverUrl}" class="basis-4/8 grayscale mt-2 rounded-[40px] sm:rounded-[56px] bg-cover bg-origin-padding" />
-      
   `;
 
     frag.append(...temp.content.childNodes);

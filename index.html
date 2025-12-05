@@ -13,11 +13,11 @@
 
 <body x-data="{ open: false }" class="bg-black font-inter h-[891px] md:h-[1792px] lg:h-[1342px] xl:h-[1050px] 2xl:h-[1080px] 3xl:h-[1280px] 4xl:h-[1664px] 5xl:h-[2880px]">
     
-    <div class="bg-[#D1D9E4] relative px-7 lg:px-20 py-5 rounded-2xl h-full flex flex-col overflow-hidden">
-        <img src="./img1.png" alt="ornament-1" class="absolute bottom-35 md:bottom-[30%] left-3/5 -translate-x-1/2 w-[185vw] lg:hidden max-w-none z-0 pointer-events-none select-none">
+    <div class="bg-[#D1D9E4] relative px-7 xl:px-20 py-5 rounded-2xl h-full flex flex-col overflow-hidden">
+        <img src="./img1.png" alt="ornament-1" class="absolute bottom-35 md:bottom-[30%] lg:bottom-24 left-3/5 -translate-x-1/2 w-[185vw] xl:hidden max-w-none z-0 pointer-events-none select-none">
         <img src="./img-2.png" alt="ornament-2" class="absolute top-17 md:top-20 right-15 w-80 z-0">
 
-        <div class="h-full flex flex-col gap-y-3 lg:grid lg:grid-cols-4 lg:grid-rows-10 lg:gap-x-20 lg:gap-y-2.5">
+        <div class="h-full flex flex-col gap-y-3 xl:grid xl:grid-cols-4 xl:grid-rows-10 xl:gap-x-20 xl:gap-y-2.5">
             <!-- HEADER -->
             <header class="basis-[10vh] sm:col-span-full sm:row-span-2 flex flex-col gap-y-2.5">
                 <!-- Site Title -->
@@ -104,20 +104,20 @@
 
             <!-- MAIN -->
             <div
-                class="basis-full lg:bg-[url(/img1.png)] bg-no-repeat bg-center bg-contain flex flex-col items-center md:justify-between lg:col-span-full lg:row-start-3 lg:row-end-10 lg:grid lg:grid-cols-4 lg:grid-rows-7 lg:h-full">
+                class="basis-full lg:bg-[url(/img1.png)] bg-no-repeat bg-center bg-contain flex flex-col items-center md:justify-between xl:col-span-full xl:row-start-3 xl:row-end-10 xl:grid xl:grid-cols-4 xl:grid-rows-7 xl:h-full">
                 <div class="basis-1/2 z-20 md:basis-1/3 2xl:col-span-3 2xl:row-span-full">
-                    <p class="hidden lg:block text-8xl font-semibold leading-tight">Talk is <br />cheap. <br />Show me
+                    <p class="hidden xl:block text-8xl font-semibold leading-tight">Talk is <br />cheap. <br />Show me
                         <br />the code.
                     </p>
-                    <p class="lg:hidden text-3xl md:text-7xl font-semibold leading-tight text-center">Talk is cheap. Show me the code.
+                    <p class="xl:hidden text-3xl md:text-7xl font-semibold leading-tight text-center">Talk is cheap. Show me the code.
                     </p>
                 </div>
 
                 <div id="post-card"
-                    class="basis-[364px] md:basis-4xl z-20 overflow-y-auto overflow-x-hidden [&::-webkit-scrollbar]:hidden scrollbar-none flex flex-col sm:gap-6 rounded-tl-[40px] rounded-tr-[40px] sm:rounded-[56px] bg-[#D1D9E4]/10 backdrop-blur-md border border-1.5 border-[#979BAA] shadow-[0_4px_16px_rgba(0,0,0,0.07)] lg:row-span-full lg:col-end-5 lg:col-span-1 lg:h-full">
+                    class="basis-[364px] md:basis-4xl lg:basis-sm z-20 overflow-y-auto overflow-x-hidden [&::-webkit-scrollbar]:hidden scrollbar-none flex flex-col sm:gap-6 rounded-tl-[40px] rounded-tr-[40px] sm:rounded-[56px] bg-[#D1D9E4]/10 backdrop-blur-md border border-1.5 border-[#979BAA] shadow-[0_4px_16px_rgba(0,0,0,0.07)] xl:row-span-full xl:col-end-5 xl:col-span-1 xl:h-full">
                     <!-- <div class="basis-1/8 flex items-center justify-between px-6 py-4 rounded-tl-[56px] rounded-tr-[56px]">
                         <a href="#" @click.prevent="open = true" class="text-sm font-medium">
-                            Design Content
+                            Design Contentbasis-[364px] md:basis-4xl lg:basis-2xl z-20 overflow-y-auto overflow-x-hidden [&::-webkit-scrollbar]:hidden scrollbar-none flex flex-col sm:gap-6 rounded-tl-[40px] rounded-tr-[40px] sm:rounded-[56px] bg-[#D1D9E4]/10 backdrop-blur-md border border-1.5 border-[#979BAA] shadow-[0_4px_16px_rgba(0,0,0,0.07)] xl:row-span-full xl:col-end-5 xl:col-span-1 xl:h-full
                         </a>
                         <div class="rounded-full w-14 h-14 bg-white flex justify-center items-center">
                             <a href="#" @click.prevent="open = true">

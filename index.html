@@ -118,9 +118,11 @@
                 </div>
 
                 <div id="post-card" x-data="postCarousel()" x-init="loadPosts()"
-                    class="basis-[364px] md:basis-4xl lg:basis-sm z-20 overflow-y-hidden overflow-x-hidden [&::-webkit-scrollbar]:hidden scrollbar-none flex flex-col sm:gap-6 rounded-tl-[40px] rounded-tr-[40px] sm:rounded-[56px] bg-[#D1D9E4]/10 backdrop-blur-md border border-1.5 border-[#979BAA] shadow-[0_4px_16px_rgba(0,0,0,0.07)] xl:row-span-full xl:col-end-5 xl:col-span-1 xl:h-full">
+                    class="w-full basis-[364px] md:basis-4xl lg:basis-sm z-20 overflow-y-hidden overflow-x-hidden [&::-webkit-scrollbar]:hidden scrollbar-none flex flex-col sm:gap-6 rounded-tl-[40px] rounded-tr-[40px] sm:rounded-[56px] bg-[#D1D9E4]/10 backdrop-blur-md border border-1.5 border-[#979BAA] shadow-[0_4px_16px_rgba(0,0,0,0.07)] xl:row-span-full xl:col-end-5 xl:col-span-1 xl:h-full">
 
                     <!-- Template Kosong untuk diisi oleh AlpineJS -->
+
+                    <!-- prev button -->
                     <button type="button"
                         class="absolute left-5 top-1/2 z-20 flex rounded-full -translate-y-1/2 items-center justify-center bg-white/40 p-2 text-neutral-600 transition hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:outline-offset-0 dark:bg-neutral-950/40 dark:text-neutral-300 dark:hover:bg-neutral-950/60 dark:focus-visible:outline-white"
                         aria-label="previous slide" x-on:click="prev()">
@@ -149,7 +151,7 @@
                                 <!-- seluruh card post lu masuk sini -->
                                 <div class="flex flex-col lg:flex-row-reverse xl:flex-col justify-between h-full sm:gap-6">
 
-                                    <div class="basis-1/2 lg:basis-3/5 xl:basis-1/2 flex flex-col justify-between gap-3 sm:gap-6">
+                                    <div class="basis-1/2 lg:basis-3/5 xl:basis-1/2 flex flex-col justify-between lg:justify-start xl:justify-between gap-3 sm:gap-6 lg:gap-2 xl:gap-6">
                                         <div
                                             class="basis-1/4 flex items-start sm:items-center justify-between px-6 pt-4 sm:py-9">
                                             <div class="text-xs sm:text-lg font-medium" x-html="post.categories"></div>
@@ -185,7 +187,7 @@
                                     </div>
 
                                     <div class="mt-2 lg:mt-0 xl:mt-2 basis-1/2 lg:basis-2/5 xl:flex xl:flex-col xl:basis-1/2 xl:justify-end">
-                                        <div class="lg:w-full aspect-[4/3] lg:aspect-square xl:aspect-[4/3]">
+                                        <div class="aspect-[4/3] lg:aspect-auto xl:aspect-[4/3] lg:w-full lg:h-full">
                                             <img :src="post.cover"
                                                 class="grayscale rounded-[40px] sm:rounded-[56px] lg:w-full lg:h-full object-cover" />
                                         </div>
@@ -213,7 +215,7 @@
 
             <!-- FOOTER -->
             <footer
-                class="basis-[10vh] flex flex-col-reverse gap-4 lg:col-span-3 sm:flex-row items-center border-t-2 border-[#979BAA]">
+                class="bg-[#D1D9E4] basis-[10vh] z-10 flex flex-col-reverse gap-4 lg:col-span-3 sm:flex-row items-center border-t-2 border-[#979BAA]">
                 <div class="sm:flex-1">
                     <p class="text-xs">© 2025 dyCodev. All Rights reserved.</p>
                 </div>
